@@ -1,0 +1,67 @@
+% 插入图片
+\usepackage{graphicx}
+% 目录超链接
+\usepackage{hyperref}
+% 标题格式
+\usepackage{titlesec}
+% 多文件
+\usepackage{subfiles}
+% 表格制作工具
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+% 表格浮动
+\usepackage{float,scrhack}
+% 图片小标题
+\usepackage{caption}
+\usepackage{subfigure}
+% 布局
+\RequirePackage[a4paper]{geometry}
+\geometry{
+  textwidth=138mm,
+  textheight=215mm,
+  left=31.8mm,
+  right=31.8mm,
+  top=25.4mm, 
+  bottom=25.4mm,
+  headheight=2.17cm,
+  headsep=4mm,
+  footskip=12mm,
+  heightrounded,
+}
+% 行距
+\usepackage{setspace}
+% 引用
+%\usepackage{cite}
+% 引用国标
+\usepackage[backend=biber,style=gb7714-2015,gbpub=false]{biblatex}
+\addbibresource[location=local]{bib/bibtext.bib}
+% 字体
+\usepackage{xeCJK}
+% \setCJKmainfont{Noto Serif CJK TC}
+\let\songti\relax
+\newCJKfontfamily\songti{SimSun.ttc}[AutoFakeSlant,AutoFakeBold={2}]
+\setCJKmainfont{SimSun.ttc}[AutoFakeSlant,AutoFakeBold={2}]
+\setmainfont{Times New Roman}
+
+% 一级标题格式
+\titleformat{\section}
+{\center\zihao{-2}\bfseries\heiti}{第\,\thesection\,章}{1em}{}
+% 二级标题格式
+\titleformat{\subsection}
+{\zihao{-4}\bfseries\heiti}     %标题行用小四号字加粗
+{\arabic{section}.\arabic{subsection}}{1em}{\bfseries}
+%三级标题格式
+\titleformat{\subsubsection}
+{\zihao{-4}\bfseries\heiti}
+{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{\bfseries}
+
+\newenvironment{hutb_abstract}[1][摘要]
+{{\zihao{-4}\bfseries\heiti #1:} \zihao{-4}}
+{\par}
+%{\newcommand\quotesource{#1} \begin{quotation}}
+%{\par\hfill ---《\textit{\quotesource}》 \end{quotation}}
+
+\newenvironment{hutb_keywords}[1][关键字]
+{{\zihao{-4}\bfseries\heiti #1:} \zihao{-4}}
+{\par}
