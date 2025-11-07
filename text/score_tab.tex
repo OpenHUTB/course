@@ -1,0 +1,127 @@
+
+\documentclass[UTF8,oneside]{ctexbook}
+\usepackage[a4paper,left=2.8cm,right=2.8cm,top=3cm,bottom=3cm]{geometry}
+\newcommand\LZUspace{\phantom{刘}}
+\usepackage{graphicx}
+\usepackage{tabularx}%依赖于array宏包，用于表格制作环境
+\newtoks  \studentclass
+\newtoks \studentid
+\newtoks \studentname
+\newtoks  \subjectname
+\newtoks \guideteachercomment
+\newtoks \guideteachersignature
+\newtoks \guideteacherrecommendgrade
+%========================
+%=====第一页内容=====
+%========================
+\newcommand{\Gradeone}{
+	\begin{center}
+		\centering
+		\vspace*{0.2cm}
+		\quad\includegraphics[width=12.53cm,height=2.64cm]{grade.png}\\
+		\vspace*{0.2cm}
+		\renewcommand{\arraystretch}{1.5}
+		\zihao{-4}\bfseries\songti
+		\begin{tabularx}{\textwidth}{|c|c|c|c|c|X|}
+			\hline
+			\zihao{4}\songti{学生姓名}&\studentname&\zihao{4}\songti{专业班级}&\studentclass&\zihao{4}\songti{学号}&\hfil\studentid   \\
+			\hline
+			\multicolumn{6}{|l|}{毕业设计（论文）课题名称：\subjectname}
+		\end{tabularx}
+		\begin{tabularx}{\textwidth}{|X|}
+			\hline
+			\zihao{-3}\bfseries\songti
+			\zihao{-4}\songti{指导教师评语：}\zihao{-5}\songti{（建议：从学生的工作态度、工作量、任务完成情况、设计（论文）的创新点、学术性、实用性、书面表达能力、书写装订规范性、外语水平等方面给出评价）}\\%
+			\centerline{%
+				\begin{minipage}[t][12cm][t]{0.92\textwidth}
+					\setlength\parindent{\ccwd}
+					\zihao{-4} \guideteachercomment   
+			\end{minipage}}\\
+			建议成绩\underline{\makebox[20mm]{ \guideteacherrecommendgrade}} \hfill 评阅教师（签字)\underline{\makebox[20mm]{\guideteachersignature }}\\
+			\hfill \ \textbf{\number \year }~年~\textbf{\number\month}~月~\textbf{\number\day}~日		\\
+			\hline
+		\end{tabularx}
+	\end{center}
+}
+%========================
+%=====第二页内容=====
+%========================
+\newtoks \supervisorcomment
+\newtoks \supervisorsignature
+\newtoks \recommendedgrade
+\newtoks \committeecomment
+\newtoks \finalgrade
+\newtoks  \leadersignature
+\newcommand{\Gradetwo}{
+	
+	\begin{center}
+		\zihao{-3}\bfseries\songti
+		\begin{tabularx}{\textwidth}{|X|}
+			\hline
+			\zihao{-4}\songti{评阅教师评语：}\zihao{-5}\songti{（对毕业设计（论文）的质量及存在的问题给予评价）}\\%
+			\centerline{%
+				\begin{minipage}[t][8cm][t]{0.92\textwidth}
+					\setlength\parindent{\ccwd}
+					\zihao{-4} \supervisorcomment   
+			\end{minipage}}\\
+			建议成绩\underline{\makebox[20mm]{ \recommendedgrade}} \hfill 评阅教师（签字)\underline{\makebox[20mm]{\supervisorsignature }}\\
+			\hfill \ \textbf{\number \year }~年~\textbf{\number\month}~月~\textbf{\number\day}~日		\\
+			\hline
+			
+			答辩委员会评语：\\
+			\centerline{%
+				\begin{minipage}[t][8cm][t]{0.8\textwidth}
+					\setlength\parindent{\ccwd}
+					\zihao{-4} \committeecomment   
+			\end{minipage}}\\
+			成\LZUspace\ 绩\underline{\makebox[15mm]{ \finalgrade}}\hfill 负责人(组长)签字：\underline{\makebox[15mm]{\leadersignature}}\\
+			\hfill \ \textbf{\number \year }~年~\textbf{\number\month}~月~\textbf{\number\day}~日		\\
+			\hline
+		\end{tabularx}
+	\end{center}
+}
+\begin{document}
+	%%对应于表格评定第一页内容==
+	%=========================
+	\renewcommand{\studentid}{2015211783}
+	\renewcommand{\studentclass}{计算机科学与技术1班}	
+	\renewcommand{\studentname}{刘强}
+	\renewcommand{\subjectname}{how to read a book}
+	\renewcommand{\guideteachercomment}{
+		不错哟。
+		
+		我很欣赏你。为什么说它有点品质，注意看一下衬衫露出领口的高度，看看衬衫领口的伏
+		贴，衬衫的法式袖剪裁，面料在灯光下的质感，手抬起时西装肩部的滑顺度，一件好的正
+		装不要求多贵，要的是你看起来没有违和感。
+	}
+	\renewcommand{\guideteacherrecommendgrade}{97}
+	\renewcommand{\guideteachersignature}{%
+		\raisebox{0pt}{%
+			\includegraphics[width=60pt]{signature.pdf}%
+		}%
+	}
+	\Gradeone
+	%%对应于表格评定第二页内容
+	%=======================
+	\renewcommand{\supervisorcomment}{
+		不错哟。
+		
+		我很欣赏你。为什么说它有点品质，注意看一下衬衫露出领口的高度，看看衬衫领口的伏
+		贴，衬衫的法式袖剪裁，面料在灯光下的质感，手抬起时西装肩部的滑顺度，一件好的正
+		装不要求多贵，要的是你看起来没有违和感。
+	}
+	\renewcommand{\recommendedgrade}{97}
+	\renewcommand{\supervisorsignature}{%
+		\raisebox{0pt}{%
+			\includegraphics[width=60pt]{signature.pdf}%
+		}%
+	}
+	\renewcommand{\committeecomment}{不错}
+	\renewcommand{\finalgrade}{100}
+	\renewcommand{\leadersignature}{%
+		\raisebox{0pt}{%
+			\includegraphics[width=60pt]{signature.pdf}%
+		}%
+	}
+	\Gradetwo
+\end{document}
